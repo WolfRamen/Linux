@@ -1,0 +1,25 @@
+#/etc/apt/sources.list
+#deb http://ftp.halifax.rwth-aachen.de/ubuntu/ focal main 
+#deb-src http://ftp.halifax.rwth-aachen.de/ubuntu/ focal main 
+
+sudo apt update && sudo apt upgrade
+#software and updates- multiverse etc aktivieren
+ sudo apt install ubuntu-restricted-extras gnome-tweaks flatpak gnome-software-plugin-flatpak
+#(https://extensions.gnome.org/)
+Sudo apt install ttf-mscorefonts-installer
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#(funktioniert erst nach reboot, flathub.org)
+sudo apt install tlp tlp-rdw
+sudo tlp start
+sudo systemctl enable tlp
+sudo apt autoremove
+
+flatpak install flathub com.slack.Slack
+flatpak install flathub us.zoom.Zoom
+flatpak install flathub com.microsoft.Teams
+flatpak install flathub com.mattermost.Desktop
+
+#in .bashrc
+#export PATH=$PATH:/home/user/.local/bin
+#alias ufz='sudo mount smb://intranet.ufz.de/dfs/ /home/user/'
+#alias idiv='mount idiv-mount'
